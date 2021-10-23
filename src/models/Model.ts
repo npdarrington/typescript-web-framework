@@ -18,7 +18,7 @@ interface Events {
 }
 
 interface HasId {
-	id: number;
+	id?: number;
 }
 
 export class Model<T extends HasId> {
