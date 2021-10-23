@@ -1,3 +1,4 @@
+import { AxiosPromise } from 'axios';
 import { Callback } from './Eventing';
 
 interface ModelAttributes<T> {
@@ -6,7 +7,10 @@ interface ModelAttributes<T> {
 	get<K extends keyof T>(key: K): T[K];
 }
 
-interface Sync {}
+interface Sync<T> {
+	fetch(id: number): AxiosPromise;
+	save(data: T): AxiosPromise;
+}
 
 interface Events {
 	on(eventName: string, callback: Callback): void;
